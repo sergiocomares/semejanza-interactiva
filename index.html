@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Semejanza Interactiva | 2 ESO</title>
+	<meta
+		name="description"
+		content="Web educativa interactiva sobre semejanza de figuras para 2 ESO."
+	/>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;700&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="stylesheet" href="css/estilos.css" />
+	<link
+		rel="stylesheet"
+		href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+	/>
+	<script
+		defer
+		src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+	></script>
+	<script
+		defer
+		src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+	></script>
+</head>
+<body>
+	<header class="hero" id="inicio">
+		<nav class="top-nav" aria-label="Navegación principal">
+			<a class="brand" href="#inicio">GeoLab 2 ESO</a>
+			<ul>
+				<li><a href="#explicacion">Explicación</a></li>
+				<li><a href="#actividades">Actividades</a></li>
+				<li><a href="#problemas">Problemas</a></li>
+				<li><a href="#dibujo">Dibujo</a></li>
+				<li><a href="#historia">Historia</a></li>
+				<li><a href="#glosario">Glosario</a></li>
+			</ul>
+			<button id="toggle-dark-mode" class="btn-dark-mode" aria-label="Cambiar tema">🌙</button>
+		</nav>
+		<div id="barra-progreso-root"></div>
+
+		<div class="hero-content section-shell reveal">
+			<p class="eyebrow">Matemáticas visuales</p>
+			<h1>Semejanza de Figuras para 2 ESO</h1>
+			<p>
+				Descubre cómo comparar figuras, calcular razones y resolver situaciones reales
+				con distancias no accesibles, alturas por sombras y triángulos semejantes.
+				Aprende practicando con feedback instantáneo.
+			</p>
+			<a class="btn-primary" href="#actividades">Empezar ahora</a>
+		</div>
+	</header>
+
+	<main>
+		<section class="section-shell reveal" id="explicacion">
+			<div class="section-heading">
+				<h2>1. Explicación visual de la semejanza</h2>
+				<p>
+					Dos figuras son semejantes cuando tienen la misma forma, aunque su tamaño
+					sea distinto. Sus ángulos coinciden y sus lados son proporcionales.
+				</p>
+			</div>
+
+			<div class="grid-2">
+				<article class="card">
+					<h3>Regla clave</h3>
+					<p>
+						Si el factor de escala es <strong>k</strong>, cada lado de la figura grande
+						es <strong>k</strong> veces el lado de la figura pequeña.
+					</p>
+					<div class="formula-box">
+						<p>\(k = \frac{\text{lado grande}}{\text{lado pequeño}}\)</p>
+						<p>\(\frac{a'}{a} = \frac{b'}{b} = \frac{c'}{c}\)</p>
+					</div>
+					<div class="contexto-dibujo" aria-hidden="true">
+						<svg viewBox="0 0 320 160" role="img" aria-label="Triángulos semejantes y proporción de lados">
+							<polygon points="24,130 124,130 44,60" fill="rgba(245,158,11,0.3)" stroke="#d97706" stroke-width="2"></polygon>
+							<polygon points="168,130 308,130 196,34" fill="rgba(14,165,162,0.28)" stroke="#0f766e" stroke-width="2"></polygon>
+							<line x1="24" y1="130" x2="124" y2="130" stroke="#92400e" stroke-dasharray="4 3"></line>
+							<line x1="168" y1="130" x2="308" y2="130" stroke="#115e59" stroke-dasharray="4 3"></line>
+							<text x="38" y="146" fill="#92400e" font-size="11">base 5</text>
+							<text x="212" y="146" fill="#115e59" font-size="11">base 10</text>
+							<text x="112" y="24" fill="#334155" font-size="12">Misma forma, lados proporcionales</text>
+						</svg>
+					</div>
+				</article>
+
+				<article class="card">
+					<h3>Ejemplo rápido</h3>
+					<table aria-label="Tabla de proporcionalidad de lados">
+						<thead>
+							<tr>
+								<th>Lado</th>
+								<th>Figura A</th>
+								<th>Figura B</th>
+								<th>Razón</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>a</td>
+								<td>4 cm</td>
+								<td>8 cm</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>b</td>
+								<td>6 cm</td>
+								<td>12 cm</td>
+								<td>2</td>
+							</tr>
+							<tr>
+								<td>c</td>
+								<td>9 cm</td>
+								<td>18 cm</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+				</article>
+			</div>
+		</section>
+
+		<section class="section-shell reveal" id="actividades">
+			<div class="section-heading">
+				<h2>2. Actividades Interactivas</h2>
+				<p>
+					Responde y comprueba al momento. Los mensajes de feedback te ayudarán a
+					corregir y mejorar.
+				</p>
+			</div>
+			<div id="actividades-root"></div>
+		</section>
+
+		<section class="section-shell reveal" id="problemas">
+			<div class="section-heading">
+				<h2>3. Problemas Contextualizados</h2>
+				<p>
+					Aplica la semejanza en situaciones reales: sombras, espejos y distancias no accesibles.
+				</p>
+			</div>
+			<div id="problemas-root"></div>
+		</section>
+
+		<section class="section-shell reveal" id="dibujo">
+			<div class="section-heading">
+				<h2>4. Dibuja y experimenta</h2>
+				<p>
+					Interactúa con triángulos semejantes. Mueve el deslizador para cambiar la escala y observa
+					cómo crecen proporcionalmente todos los lados.
+				</p>
+			</div>
+			<div id="dibujo-root"></div>
+		</section>
+
+		<section class="section-shell reveal" id="historia">
+			<div class="section-heading">
+				<h2>5. Historia: Tales de Mileto</h2>
+				<p>El origen matemático de la semejanza.</p>
+			</div>
+			<article class="card card-wide">
+				<h3>Cómo Tales midió la pirámide de Keops</h3>
+				<p>
+					Hace más de 2500 años, el matemático griego <strong>Tales de Mileto</strong> visitó Egipto. Los egipcios le desafiaron
+					a medir la altura de la Gran Pirámide de Keops sin subirla.
+				</p>
+				<p><strong>Tales usó la semejanza:</strong></p>
+				<ol>
+					<li>Clavó un bastón vertical en el suelo</li>
+					<li>Midió la sombra del bastón y su altura</li>
+					<li>Midió la sombra de la pirámide</li>
+					<li>Usando proporciones, calculó la altura: \[\frac{h_{\text{bastón}}}{s_{\text{bastón}}} = \frac{h_{\text{pirámide}}}{s_{\text{pirámide}}}\]</li>
+				</ol>
+				<p>¡Sin semejanza, nunca habría podido resolverlo! Este es el mismo método que usaste en la sección de sombras.</p>
+			</article>
+		</section>
+
+		<section class="section-shell reveal" id="glosario">
+			<div class="section-heading">
+				<h2>6. Glosario interactivo</h2>
+				<p>Términos clave de la semejanza.</p>
+			</div>
+			<div id="glosario-root" class="glosario-grid"></div>
+		</section>
+
+		<section class="section-shell reveal" id="errores">
+			<div class="section-heading">
+				<h2>7. Errores comunes</h2>
+				<p>Aprende de los errores más frecuentes.</p>
+			</div>
+			<div id="errores-root" class="errores-grid"></div>
+		</section>
+
+		<section class="section-shell reveal" id="descarga">
+			<div class="section-heading">
+				<h2>8. Tu reporte</h2>
+				<p>Descarga tu progreso y comparte con tu profesor.</p>
+			</div>
+			<div class="reporte-acciones">
+				<button id="btn-descargar-pdf" class="btn-primary">📄 Descargar PDF</button>
+				<button id="btn-reiniciar" class="btn-reset">🔄 Reiniciar</button>
+			</div>
+			<div id="reporte-resumen"></div>
+		</section>
+
+	<footer class="section-shell footer reveal">
+		<p>Proyecto interactivo de Matemáticas - Semejanza de figuras (2 ESO)</p>
+	</footer>
+
+	<script type="module" src="js/app.js"></script>
+</body>
+</html>
